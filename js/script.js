@@ -88,37 +88,7 @@ const products = [
   // Tambahkan data produk lain sesuai kebutuhan
 ];
 
-// Referensi elemen DOM
-const cartItemsContainer = document.getElementById('cart-item');
 
-// Fungsi untuk menambahkan produk ke keranjang
-function addToCart(productId) {
-  const product = products.find(p => p.id == productId); // Temukan produk berdasarkan ID
-  const cartItemHTML = `
-    <div class="cart-item">
-      <img src="${product.imgSrc}" alt="${product.name}" />
-      <div class="item-detail">
-        <h3>${product.name}</h3>
-        <div class="item-price">${product.price}</div>
-      </div>
-      <i data-feather="trash-2" class="remove-item"></i>
-    </div>
-  `;
-  
-  cartItemsContainer.insertAdjacentHTML('beforeend', cartItemHTML); // Tambah ke keranjang
-
-  feather.replace(); // Replace icons to ensure the feather icons are updated
-}
-
-// Event Listener untuk tombol 'Add to Cart'
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-addToCartButtons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-    const productId = button.getAttribute('data-id');
-    addToCart(productId); // Tambah produk ke keranjang
-  });
-});
 
 // Modal Box
 const itemDetailModal = document.querySelector("#item-detail-modal");
